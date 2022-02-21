@@ -9,10 +9,8 @@ function renderPokemonCard() {
     const types = pokemonArray[i].types;
     const img = pokemonArray[i].sprite;
 
-    // const str = `Name: ${name} + ${id} + ${type} + ${img};`
-
     const card = `<div class="card-container">
-        <div class="card__img"> 
+        <div class="card__image"> 
          <img src=${img} alt="${name} pokemon"/>
         </div>            
         <h3>${id}</h3>
@@ -27,9 +25,5 @@ function renderPokemonCard() {
 
 // const cardsContainer = document.querySelector(".card-container");
 //  cardsContainer.innerHTML = renderPokemonCard();
-
-pokemonArray.forEach((name) => {
-  console.log(name);
-});
 
 renderPokemonCard();
