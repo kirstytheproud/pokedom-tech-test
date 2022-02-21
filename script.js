@@ -1,31 +1,35 @@
-import {pokemonArray} from './data/pokemon.js';
+import { pokemonArray } from "./data/pokemon.js";
 
-console.log(pokemonArray[0]);
-
+console.log(pokemonArray[0].name);
 
 function renderPokemonCard() {
-    for(let i=0; i<pokemonArray.length; i++){
-        return `<div class="card-container">
+  for (let i = 0; i < pokemonArray.length; i++) {
+    const id = pokemonArray[i].id;
+    const name = pokemonArray[i].name;
+    const types = pokemonArray[i].types;
+    const img = pokemonArray[i].sprite;
+
+    // const str = `Name: ${name} + ${id} + ${type} + ${img};`
+
+    const card = `<div class="card-container">
         <div class="card__img"> 
-         <img src=${this.sprite} alt="${this.name} pokemon"/>
+         <img src=${img} alt="${name} pokemon"/>
         </div>            
-        <h3>${this.id}</h3>
-                     <h2>${this.name}</h2>
-                     <p>${this.types}</p>
+        <h3>${id}</h3>
+                     <h2>${name}</h2>
+                     <p>${types}</p>
            
                      </div>`;
-         }
 
-    }
-    
+    document.querySelector(".card-container").innerHTML = card;
+  }
+}
 
+// const cardsContainer = document.querySelector(".card-container");
+//  cardsContainer.innerHTML = renderPokemonCard();
 
-const cardsContainer = document.querySelector(".card-container");
- cardsContainer.innerHTML = renderPokemonCard();
+pokemonArray.forEach((name) => {
+  console.log(name);
+});
 
-//   console.log(cardsContainer);
-  console.log(pokemonArray.id);
-
-pokemonArray.forEach (name =>{
-    console.log(name);
-})
+renderPokemonCard();
